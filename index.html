@@ -2,163 +2,121 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!--===== CSS =====-->
+    <title>Resume Builder</title>
     <link rel="stylesheet" href="style.css" />
-
-    <title>Login form style google</title>
   </head>
   <body>
+    <h1 class="form__title"><a href="#">Resume Builder</a></h1>
     <div class="l-form">
-      <form action="" class="form">
-        <h1 class="form__title">Resume Builder</h1>
-
-        <div class="form__div">
-          <input type="text" class="form__input" placeholder=" " />
-          <label for="" class="form__label">Full Name</label>
-        </div>
-        <div class="form__div">
-          <input type="text" class="form__input" placeholder=" " />
-          <label for="" class="form__label">Phone Number</label>
-        </div>
-
-        <div class="form__div">
-          <input type="text" class="form__input" placeholder=" " />
-          <label for="" class="form__label">Email Address</label>
-        </div>
-
-        <div class="form__div">
-          <input type="text" class="form__input" placeholder=" " />
-          <label for="" class="form__label">Address</label>
-        </div>
-
-        <div class="form__div">
-          <label for="" class="form__label">Resume Summary/Objective</label>
-          <input type="text" class="form__input" placeholder=" " />
-        </div>
-
-        <div class="form__div">
-          <input type="text" class="form__input" placeholder=" " />
-          <label for="" class="form__label">Work Experience</label>
-        </div>
-
+      <form class="form" method="post">
         <div class="form__div">
           <input
-            rows="4"
-            cols="50"
-            type="text"
             class="form__input"
-            placeholder=" "
-          />
-          <label for="" class="form__label">Education</label>
-        </div>
-
-        <div class="form__div">
-          <input
-            rows="4"
-            cols="50"
             type="text"
-            class="form__input"
             placeholder=" "
+            id="name"
+            required
           />
-          <label for="" class="form__label">Skills</label>
+          <label class="form__label" for="">Name</label>
         </div>
         <div class="form__div">
           <input
-            rows="4"
-            cols="50"
-            type="text"
             class="form__input"
+            type="email"
+            id="email"
             placeholder=" "
+            name="email"
+            required
           />
-          <label for="" class="form__label">Professional Certifications</label>
+          <label class="form__label" for="">Email</label>
         </div>
         <div class="form__div">
           <input
-            rows="4"
-            cols="50"
             type="text"
             class="form__input"
+            id="phone"
             placeholder=" "
+            name="phone"
+            required
           />
-          <label for="" class="form__label">Volunteer Experience</label>
+          <label class="form__label" for="">Phone</label>
         </div>
         <div class="form__div">
-          <input
-            rows="4"
-            cols="50"
-            type="text"
+          <textarea
+            id="address"
             class="form__input"
+            name="address"
             placeholder=" "
-          />
-          <label for="" class="form__label">Projects</label>
+            required
+          ></textarea>
+          <label class="form__label" for="address">Address</label>
         </div>
+
         <div class="form__div">
-          <input rows="4" cols="50" class="form__input" placeholder=" " />
-          <label for="" class="form__label">Publications/Presentations</label>
+          <textarea
+            class="form__input"
+            id="education"
+            name="education"
+            placeholder=" "
+            required
+          ></textarea>
+          <label for="education" class="form__label">Education</label>
         </div>
-        <div class="submit__button">
-          <input type="submit" class="form__button" value="Preview" />
-          <input type="submit" class="form__button" value="Generate Resume" />
+
+        <div class="form__div">
+          <textarea
+            id="experience"
+            name="experience"
+            placeholder=" "
+            required
+            class="form__input"
+          ></textarea>
+          <label for="" class="form__label">Experience</label>
+        </div>
+
+        <div class="form__div">
+          <textarea
+            id="skills"
+            name="skills"
+            placeholder=" "
+            required
+            class="form__input"
+          ></textarea>
+          <label for="skills" class="form__label">Skills</label>
+        </div>
+
+        <div class="form__div">
+          <select
+            id="template"
+            placeholder=" "
+            class="form__input"
+            name="template"
+            required
+          >
+            <?php for ($i = 1; $i <= 10; $i++): ?>
+            <option value="template<?php echo $i; ?>">
+              Standard
+              <?php echo $i; ?>
+            </option>
+            <option value="template<?php echo $i; ?>">
+              Beginner
+              <?php echo $i; ?>
+            </option>
+            <option value="template<?php echo $i; ?>">
+              Professional
+              <?php echo $i; ?>
+            </option>
+            <?php endfor; ?>
+          </select>
+          <label for="template" class="form__label">Choose a template</label>
+        </div>
+
+        <div class="button__div">
+          <button class="button-55" type="submit" name="preview">
+            Preview
+          </button>
         </div>
       </form>
     </div>
-    <script>
-      // Preview button functionality
-      document
-        .getElementById("preview_button")
-        .addEventListener("click", function () {
-          var form = document.getElementById("resume_form");
-          var previewDiv = document.getElementById("resume_preview");
-          var previewContent = "";
-
-          // Generate preview content based on form data
-          // You can customize this part to format the preview as you like
-          previewContent += "<h2>Resume Preview</h2>";
-          previewContent +=
-            "<p><strong>Full Name:</strong> " + form.full_name.value + "</p>";
-          previewContent +=
-            "<p><strong>Phone Number:</strong> " +
-            form.phone_number.value +
-            "</p>";
-          previewContent +=
-            "<p><strong>Email Address:</strong> " + form.email.value + "</p>";
-          previewContent +=
-            "<p><strong>Address:</strong> " + form.address.value + "</p>";
-          previewContent +=
-            "<p><strong>Resume Summary/Objective:</strong><br>" +
-            form.summary.value +
-            "</p>";
-          previewContent +=
-            "<p><strong>Work Experience:</strong><br>" +
-            form.work_experience.value +
-            "</p>";
-          previewContent +=
-            "<p><strong>Education:</strong><br>" +
-            form.education.value +
-            "</p>";
-          previewContent +=
-            "<p><strong>Skills:</strong><br>" + form.skills.value + "</p>";
-          previewContent +=
-            "<p><strong>Professional Certifications:</strong><br>" +
-            form.certifications.value +
-            "</p>";
-          previewContent +=
-            "<p><strong>Volunteer Experience:</strong><br>" +
-            form.volunteer_experience.value +
-            "</p>";
-          previewContent +=
-            "<p><strong>Projects:</strong><br>" + form.projects.value + "</p>";
-          previewContent +=
-            "<p><strong>Publications/Presentations:</strong><br>" +
-            form.publications.value +
-            "</p>";
-
-          // Display the preview content
-          previewDiv.innerHTML = previewContent;
-          previewDiv.style.display = "block";
-        });
-    </script>
   </body>
 </html>
